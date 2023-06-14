@@ -1,0 +1,91 @@
+LOOP: LI R1, 100h
+LW R2, 0(R1)
+LW R3, 8(R1)
+LI R4, 104h
+ADDI R1, R2, 1
+MULT R3, R1, R3
+MULT R1, R1, R3
+SUBI R2, R2, 1
+BEQ R3, R2, LOOP
+HLT
+HLT
+
+
+
+LI R1, 100h # addr = 0x100;
+LW R3, 0(R1) # boundary = *addr;
+LI R5, 1 # i = 1;
+LI R7, 0h # sum = 0;
+LI R6, 1h # factorial = 0x01;
+LOOP: MULT R6, R5, R6 # factorial *= I;
+ADD R7, R7, R6 # sum += factorial;
+ADDI R5, R5, 1h # i++;
+BNE R5, R3, LOOP
+And R7, R7, R7
+Or R7, R7, R7
+Andi R7, 1
+Ori R7, 0
+sll r7, r7, r7
+srl r7, r7, r7
+slli r7, r7, 1
+srli r7, r7 ,1
+HLT
+HLT
+
+li r1 100h                        12        13        17        18        19        
+li r8 254                        13        14        18        19        20        
+lw r2 0(r8)                        14        15        19        40        41        
+lw r3 0(r1)                        15        16        40        52        53        
+li r5 1                        27        28        53        54        55        
+li r7 0h                        28        29        54        55        56        
+li r6 1h                        29        30        55        56        57        
+mult r6 r5 r6                   30        40        56        57        58        
+add r7 r7 r6                   40        53        60        61        62        
+addi r5 r5 1h                   53        57        61        62        63        
+bne r5 r3 loop                   57        58        
+and r7 r7 r7                   58        60        64        65        66        
+or r7 r7 r7                   71        72        76        77        78        
+andi r7 1                        72        73        77        78        79        
+ori r7 0                        73        74        78        79        80        
+sll r7 r7 r7                   74        75        79        80        81        
+srl r7 r7 r7                   86        87        91        92        93        
+slli r7 r7 1                   87        88        92        93        94        
+srli r7 r7 1                   88        89        93        94        95        
+hlt
+hlt
+Program done go to C:\Users\dan\workspace\411_FinalProject\src\output.txt to see output
+
+li r1 100h
+li r8 254
+lw r2 0(r8)
+lw r3 0(r1)
+li r5 1
+li r7 0h
+li r6 1h
+mult r6 r5 r6
+add r7 r7 r6
+addi r5 r5 1
+bne r5 r3 loop
+and r7 r7 r7
+or r7 r7 r7
+andi r7 1
+ori r7 0
+sll r7 r7 r7
+srl r7 r7 r7
+slli r7 r7 1
+srli r7 r7 1
+hlt
+hlt
+
+
+
+LI R1, 100h
+LW R2, 0(R1)
+LW R3, 8(R1)
+LOOP: ADD R2, R2, R3
+ADD R3, R2, R2
+SUB R4, R3, R2 
+LW R5, 4(R1)
+BEQ R4, R5, LOOP
+HLT
+HLT
